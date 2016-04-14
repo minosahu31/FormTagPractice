@@ -1,0 +1,8 @@
+<h1>Products#index</h1>
+<p>Find me in app/views/products/index.html.erb</p>
+<ul>	
+	<% @products.each do |product| %>
+		<li><%= product.name %> &nbsp&nbsp&nbsp <%= link_to "show", product_path(product), remote: true %> &nbsp <%= link_to "Edit", edit_product_path(product),remote: true %> &nbsp <%= link_to "Delete", product_path(product), method: :delete, data: { confirm: "Are sure want to delete?" }, remote: true %> </li>
+	<% end %>		
+</ul>
+<%= link_to "New Product", new_product_path, remote: true %>

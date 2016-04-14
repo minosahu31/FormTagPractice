@@ -1,0 +1,13 @@
+<h1>Employees#new</h1>
+<p>Find me in app/views/employees/new.html.erb</p>
+<%= form_tag({ controller: "employees", action: "create" }, remote: true, method: "post", class: "nifty-form") do %>
+	<p>
+		<%= label_tag(:name, "Name:") %>
+		<%= text_field_tag(:name) %>
+	</p>	
+	<p>
+		<%= label_tag(:designation, "Designation:") %>
+		<%= text_field_tag(:designation) %>
+	</p>	
+	<%= submit_tag("Create") %>
+<% end %>
