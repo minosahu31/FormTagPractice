@@ -1,0 +1,11 @@
+<table>
+	<tr>
+		<th>Name</th>
+	</tr>
+	<% @pictures.each do |picture| %>
+		<tr>	
+			<td><%= picture.name %><td>
+		</tr>
+	<% end %>	
+</table>		
+<%= link_to "New", new_picture_path, remote: true %>

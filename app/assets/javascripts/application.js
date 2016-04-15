@@ -14,3 +14,18 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+	$("product_list").hide();
+	//document.getElementBy("selection1").checked = true;
+	$("employee_list").hide();
+	$("#new").on("change", "input:radio[name = 'picture_for']",function(){
+		if(this.value == 'Product' && this.checked){
+			$("#employee_list").hide();
+			$("#product_list").show();
+		}else if(this.value == 'Employee' && this.checked){
+			$("#product_list").hide();	
+			$("#employee_list").show();
+		}
+	});	
+});
