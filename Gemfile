@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#Bootstrap-sass gem
+gem 'bootstrap-sass', '~> 3.3.6'
+#For ajax calls
 gem 'responders', '~> 2.1', '>= 2.1.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'

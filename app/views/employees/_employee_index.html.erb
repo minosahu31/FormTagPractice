@@ -6,7 +6,7 @@
 	</tr>
 	<% @employees.each do |employee|%>
 		<tr>	
-			<td><%= employee.name %></td>
+			<td><%= employee.first_name %></td>
 			<td>
 				<%= link_to "show", employee_path(employee), remote: true %> &nbsp <%= link_to "edit", edit_employee_path(employee), remote: true %> &nbsp    <%= link_to "delete", employee_path(employee), remote: true, method: :delete, data: { confirm: "Are you sure want to delete? " }  %>
 			</td>

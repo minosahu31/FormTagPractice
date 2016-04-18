@@ -1,13 +1,60 @@
 <h1>Employees#new</h1>
 <p>Find me in app/views/employees/new.html.erb</p>
 <%= form_tag({ controller: "employees", action: "create" }, remote: true, method: "post", class: "nifty-form") do %>
+	<% if @employee.errors.any? %>
+		<h3><%= pluralize(@employee.errors.count, "error") %> prohibited from being saved..</h3>
+		<ul>
+			<% @employee.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>	
+	<% end %>
 	<p>
-		<%= label_tag(:name, "Name:") %>
-		<%= text_field_tag(:name) %>
+		<%= label_tag(:first_name, "First name:") %>
+		<%= text_field_tag(:first_name) %>
 	</p>	
 	<p>
 		<%= label_tag(:designation, "Designation:") %>
 		<%= text_field_tag(:designation) %>
+	</p>	
+	<p>
+		<%= label_tag(:last_name, "Last name:") %>
+		<%= text_field_tag(:last_name) %>	
+	</p>	
+	<p>
+		<%= label_tag(:email, "Email:") %>
+		<%= email_field_tag(:email) %>	
+	</p>
+	<p>
+		<%= label_tag(:email_confirmation, "Confirm email:") %>
+		<%= email_field_tag(:email_confirmation) %>	
+	</p>	
+	<p>
+		<%= label_tag(:date_of_birth, "Date of birth:") %>
+		<%= date_field_tag(:date_of_birth, "00/00/0000") %>	
+	</p>
+	<p>
+		<%= label_tag(:gender, "Gender:") %>
+		<%= radio_button_tag(:gender, "Male",) %>
+		<%= label_tag(:gender, "Male") %>
+		<%= radio_button_tag(:gender, "Female") %>
+		<%= label_tag(:gender, "Female") %>
+	</p>	
+	<p>
+		<%= label_tag(:phone_number, "Phone number:") %>
+		<%= text_field_tag(:phone_number) %>
+	</p>	
+	<p>
+		<%= label_tag(:address,"Address:") %>
+		<%= text_field_tag(:address) %>	
+	</p>	
+	<p>
+		<%= label_tag(:pin_code,"Pin code:") %>
+		<%= text_field_tag(:pin_code) %>	
+	</p>	
+	<p>
+		<%= check_box_tag(:terms_and_condition, true) %>
+		<%= label_tag(:terms_and_condition, "Accept terms and conditions") %>
 	</p>	
 	<%= submit_tag("Create") %>
 <% end %>

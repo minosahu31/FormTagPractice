@@ -17,7 +17,11 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(employee_params)
-    @employee.save
+    if @employee.save
+      @employees = Employee.all
+    else
+      render "new"
+    end 
   end
 
   def edit
@@ -38,7 +42,7 @@ class EmployeesController < ApplicationController
   end
 
   def employee_params
-    params.permit(:name, :designation)
+    params.permit(:first_name, :designation, :last_name, :email,:email_confirmation  , :date_of_birth, :gender, :phone_number, :address, :pin_code, :terms_and_condition)
   end
 
   def find_employees
